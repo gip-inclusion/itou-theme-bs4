@@ -1,0 +1,185 @@
+.s-header {
+  background-color: $white;
+  position: relative;
+  z-index: 1;
+
+  &.is-opened {
+    #burgerNav {
+      display: flex;
+    }
+
+    #close {
+      display: inline;
+      z-index: 100;
+    }
+
+    #open {
+      display: none;
+    }
+  }
+
+  &__container {
+    max-width: map-get($container-max-widths, 'xl');
+  }
+
+  &__row {
+    max-width: map-get($container-max-widths, 'xl');
+  }
+
+  &__col {
+    min-height: $header-height-mobile;
+
+    @include media-breakpoint-up(md) {
+      min-height: $header-height;
+    }
+
+    &--logo-ministere {
+
+      img {
+        height: auto;
+        max-width: 80px;
+        transform: translateX(-10px);
+
+        @include media-breakpoint-up(md) {
+          max-width: 100px;
+          transform: translateX(-12px);
+        }
+      }
+    }
+
+    &--logo-service {
+
+      img {
+        height: auto;
+        max-width: 150px;
+
+        @include media-breakpoint-up(md) {
+          max-width: 190px;
+        }
+      }
+    }
+
+    &--nav {
+
+      nav {
+
+        > ul {
+          @extend .list-inline;
+          @extend .list-unstyled;
+          @extend .m-0;
+          @extend .p-0;
+          width: 100%;
+
+          > li {
+            @extend .list-inline-item;
+            @extend .m-0;
+            @extend .p-0;
+
+            &:last-child > a,
+            &:last-child > button {
+              @extend .mr-0;
+            }
+
+            > a,
+            > button {
+              @extend .mr-3;
+            }
+          }
+        }
+      }
+    }
+
+    &--burger {
+
+      > i {
+        color: $button;
+        font-size: 32px;
+
+        @include media-breakpoint-up(md) {
+          font-size: 42px;
+        }
+
+        &#close {
+          display: none;
+          z-index: 100;
+        }
+      }
+    }
+
+    &--title {
+
+      span {
+        @extend .mb-0;
+        @extend .mr-3;
+        font-size: $h4-font-size;
+      }
+    }
+  }
+
+  #burgerNav {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    @extend .p-3;
+    background-color: $white;
+    box-shadow: 12px 12px 19px -10px rgba($primary, 0.1);
+    width: 85vw;
+    top: $header-height-mobile;
+    height: calc(100vh - #{$header-height-mobile});
+
+    @include media-breakpoint-up(sm) {
+      width: 66vw;
+    }
+
+    @include media-breakpoint-up(md) {
+      top: $header-height;
+      height: calc(100vh - #{$header-height});
+    }
+
+    > nav {
+
+      ul {
+        @extend .list-unstyled;
+        @extend .m-0;
+        width: 100%;
+
+        > li {
+          @extend .d-block;
+          @extend .m-0;
+          @extend .p-0;
+
+          &:last-child > a,
+          &:last-child > button {
+            @extend .mr-0;
+          }
+
+          > a,
+          > button {
+            @extend .mb-3;
+          }
+        }
+
+        + ul {
+          border-top: 1px solid $border-color;
+          @extend .pt-3;
+          //@extend .mt-3;
+
+          > li > a {
+            @extend .d-inline-block;
+            @extend .text-decoration-none;
+            @extend .py-1;
+
+            &.is-active {
+              color: $button;
+              border-bottom: 1px solid $button;
+            }
+          }
+        }
+      }
+    }
+
+
+  }
+}

@@ -1,0 +1,68 @@
+.badge {
+  @extend .d-inline-flex;
+  @extend .flex-row;
+  @extend .align-items-center;
+
+  &-base {
+    font-size: $font-size-base;
+    padding: $badge-padding-y $badge-padding-x;
+
+    > i {
+      margin-right: map-get($spacers, 1);
+      font-weight: $font-weight-base;
+    }
+
+  }
+
+  &-sm {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-normal;
+    padding: $badge-padding-y $badge-padding-x;
+
+    > i {
+      @extend .ri-sm;
+      margin-right: map-get($spacers, 1);
+      font-weight: $font-weight-base;
+    }
+  }
+
+  &-xs {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-normal;
+    padding: 0.20rem $badge-padding-x 0.25rem $badge-padding-x;
+
+    > i {
+      @extend .ri-xs;
+      margin-right: map-get($spacers, 1);
+      font-weight: $font-weight-base;
+    }
+  }
+
+  + .badge {
+    @extend .ml-1;
+  }
+}
+
+a.badge {
+  text-decoration: none;
+}
+
+
+.badge-group {
+  @extend .mb-n1;
+
+  .badge {
+    @extend .mr-1;
+    @extend .mb-1;
+
+    & + .badge {
+      @extend .ml-0;
+    }
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .badge-outline-#{$color} {
+    @include badge-outline-variant($value);
+  }
+}

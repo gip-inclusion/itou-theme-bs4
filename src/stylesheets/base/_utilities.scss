@@ -1,0 +1,141 @@
+@each $breakpoint, $container-max-width in $container-max-widths {
+  .container-max-#{$breakpoint} {
+    max-width: $container-max-width !important;
+  }
+}
+
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+      @each $prop, $abbrev in (width: w, height: h, min-width: mw, min-height: mh) {
+        @each $size, $length in $sizes {
+          .#{$abbrev}#{$infix}-#{$size} { #{$prop}: $length !important; }
+        }
+      }
+  }
+}
+
+
+.font-weight-medium {
+  font-weight: $font-weight-medium;
+}
+
+.text-decoration-underline {
+  text-decoration: underline !important;
+}
+
+.hidden-if-empty:empty {
+  @extend .d-none;
+}
+
+.img-fitcover {
+  object-fit: cover;
+  width: 100%;
+}
+
+.fs-base {
+  font-size: $font-size-base !important;
+}
+
+.fs-lg {
+  font-size: $font-size-lg !important;
+}
+
+.fs-sm {
+  font-size: $font-size-sm !important;
+}
+
+.fs-xs {
+  font-size: $font-size-xs !important;
+}
+
+.ff-base {
+  font-family: $font-family-base;
+}
+
+.ff-heading {
+  font-family: $font-family-heading;
+}
+
+.ff-extra-01 {
+  font-family: $font-family-extra-01;
+}
+
+.shadow-xl { box-shadow: $box-shadow-xl !important; }
+
+.rounded-xl { border-radius: $border-radius-xl !important; }
+
+.lh-base {
+  line-height: $line-height-base !important;
+}
+
+.lh-lg {
+  line-height: $line-height-lg !important;
+}
+
+.lh-sm {
+  line-height: $line-height-sm !important;
+}
+
+.white-space-normal {
+  white-space: normal !important;
+}
+
+.white-space-nowrap {
+  white-space: nowrap !important;
+}
+
+.has-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.has-ratio-16-9 {
+  aspect-ratio: 16 / 9;
+}
+
+.has-no-transition {
+  transition: none !important;
+}
+
+.has-collapse-caret {
+  position: relative;
+  text-decoration: none;
+
+  &::after {
+    @extend .ml-1;
+    content: '\ea4e';
+    font-family: remixicon !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1;
+    vertical-align: text-bottom;
+    font-size: 1.25rem;
+    font-weight: $font-weight-bold;
+  }
+
+  &[aria-expanded=true]::after {
+    content: '\ea78';
+  }
+}
+
+.text-disabled,
+.disabled {
+  color: $disable-color !important;
+  pointer-events: none;
+}
+
+.has-external-link::after {
+  content: '\ecaf';
+  font-family: 'remixicon' !important;
+  font-size: inherit;
+  font-style: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-left: map-get($spacers, 1);
+  display: inline-block;
+}

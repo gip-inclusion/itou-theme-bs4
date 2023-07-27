@@ -1,0 +1,90 @@
+.toast-placement-wrapper {
+  position: fixed;
+  z-index: $zindex-toast;
+  right: map-get($spacers, 3);
+  width: calc(100% - 32px);
+  max-width: none;
+  bottom: 16px;
+  top: initial;
+
+  @include media-breakpoint-up(sm) {
+    width: auto;
+    max-width: $toast-max-width;
+    bottom: initial;
+    top: calc(#{$header-height-mobile} + 16px);
+  }
+
+  @include media-breakpoint-up(md) {
+    top: calc(#{$header-height} + 16px);
+  }
+
+  @include media-breakpoint-up(xl) {
+    top: calc(#{$header-height} + 16px);
+  }
+}
+
+.toast {
+  width: 100%;
+  min-width: $toast-max-width;
+  max-width: none;
+
+  @include media-breakpoint-up(sm) {
+    max-width: $toast-max-width;
+  }
+
+  &--info {
+    color: $info;
+    border-color: $info;
+
+    .toast-header {
+      color: $info;
+      background-color: $info-lightest;
+
+      .close {
+        color: $info;
+      }
+    }
+  }
+
+  &--danger {
+    color: $danger;
+    border-color: $danger;
+
+    .toast-header {
+      color: $danger;
+      background-color: $danger-lightest;
+
+      .close {
+        color: $danger;
+      }
+    }
+  }
+
+  &--success {
+    color: $success;
+    border-color: $success;
+
+    .toast-header {
+      color: $success;
+      background-color: $success-lightest;
+
+      .close {
+        color: $success;
+      }
+    }
+  }
+
+  &--warning {
+    color: $warning;
+    border-color: $warning;
+
+    .toast-header {
+      color: $warning;
+      background-color: $warning-lightest;
+
+      .close {
+        color: $warning;
+      }
+    }
+  }
+}

@@ -1,0 +1,102 @@
+.c-card,
+.card {
+  transition: border-color 0.3s ease-in-out;
+
+  .card-header {
+    padding-bottom: 0;
+  }
+
+  .card-header,
+  .card-footer {
+    background-color: transparent;
+    border: none !important;
+  }
+
+  .card-footer {
+    padding:  map-get($spacers, 2);
+
+    > * {
+      margin: $modal-footer-margin-between * .5;
+    }
+  }
+
+  .card-body {
+    > p:last-child,
+    > ul:last-child {
+      @extend .mb-0;
+    }
+  }
+
+  .card-link {
+    @extend .text-decoration-underline;
+  }
+
+  &--plateforme {
+
+    &::after {
+      content: '';
+      width: 100%;
+      height: 10px;
+      background-color: $primary;
+      @include border-bottom-radius($card-inner-border-radius);
+    }
+  }
+
+  &--marche {
+
+    &::after {
+      content: '';
+      width: 100%;
+      height: 10px;
+      background-color: $marche;
+      @include border-bottom-radius($card-inner-border-radius);
+    }
+  }
+
+  &--pilotage {
+
+    &::after {
+      content: '';
+      width: 100%;
+      height: 10px;
+      background-color: $pilotage;
+      @include border-bottom-radius($card-inner-border-radius);
+    }
+  }
+
+  &--communaute {
+
+    &::after {
+      content: '';
+      width: 100%;
+      height: 10px;
+      background-color: $communaute;
+      @include border-bottom-radius($card-inner-border-radius);
+    }
+  }
+
+  &--emploi {
+
+    &::after {
+      content: '';
+      width: 100%;
+      height: 10px;
+      background-color: $emploi;
+      @include border-bottom-radius($card-inner-border-radius);
+    }
+  }
+
+  &.has-one-link-inside {
+
+    &:hover {
+      border-color: $button-light;
+    }
+  }
+
+  &.has-links-inside {
+
+    &:hover {
+      border-color: $border-color-hover;
+    }
+  }
+}

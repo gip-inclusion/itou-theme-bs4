@@ -1,0 +1,232 @@
+.s-article-picture-01 {
+  padding-top: map-get($spacers, 4);
+  padding-bottom: map-get($spacers, 4);
+
+  @include media-breakpoint-up(lg) {
+    padding-top: map-get($spacers, 5);
+    padding-bottom: map-get($spacers, 6);
+  }
+
+  &__col {
+
+    &--article {
+
+      article {
+        @extend .w-100;
+      }
+
+      &__title {
+        @extend .mb-4;
+        position: relative;
+
+        &:after {
+          content: '';
+          display: block;
+          width: 50px;
+          height: 10px;
+          background-color: $primary;
+          border-radius: 5px;
+          @extend .mt-3;
+        }
+      }
+
+      &__cta {
+        text-align: center;
+
+        @include media-breakpoint-up(lg) {
+          text-align: left;
+        }
+      }
+
+      ol {
+        @extend .d-flex;
+        flex-direction: column;
+        @extend .p-0;
+        margin-bottom: map-get($spacers, 4);
+
+        @include media-breakpoint-up(lg) {
+          flex-direction: row;
+        }
+
+        > li {
+          @extend .pr-3;
+          @extend .flex-lg-fill;
+          list-style: none;
+
+          > ul {
+            @extend .pl-3;
+            margin-bottom: 0;
+            list-style: disc;
+          }
+        }
+      }
+
+      ul {
+        @extend .pl-3;
+        margin-bottom: map-get($spacers, 4);
+      }
+
+      p {
+        margin-bottom: map-get($spacers, 4);
+      }
+
+      > *:last-of-type:not(:first-of-type) {
+        @extend .mb-0;
+      }
+
+      figure {
+        > div {
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, calc(-50% - 20px));
+        }
+      }
+    }
+
+    &--picture {
+      picture {
+        @extend .w-100;
+        @extend .mb-3;
+
+        @include media-breakpoint-up(lg) {
+          margin-bottom: 0 !important;
+        }
+      }
+    }
+
+    &--figure {
+
+      figure {
+
+        > div {
+          top: 50%;
+          left: 0%;
+          transform: translate(-25%, calc(-50% - 20px));
+        }
+      }
+    }
+
+    figure {
+      position: relative;
+      @extend .mb-3;
+
+      @include media-breakpoint-up(lg) {
+        margin-bottom: 0 !important;
+      }
+
+      > div {
+        position: absolute;
+        width: 150px;
+
+        > div {
+          @extend .d-flex;
+          @extend .align-items-center;
+          @extend .justify-content-center;
+          background-color: $white;
+          min-height: 90px;
+          width: 150px;
+          border: 1px solid $border-color;
+          border-radius: $border-radius-lg;
+          border-bottom: 10px solid $primary;
+
+          &:first-child {
+            @extend .mb-3;
+          }
+        }
+
+        span {
+          text-align: center;
+          line-height: $line-height-sm;
+
+          strong {
+            display: block;
+            font-family: $font-family-heading;
+            font-size: $lead-font-size;
+            font-weight: $font-weight-bold;
+          }
+        }
+      }
+    }
+  }
+
+  &--marche {
+    .s-article-picture-01__col--article h2::after {
+      background-color: $marche;
+    }
+
+    .s-article-picture-01__col figure > div > div {
+      border-bottom-color: $marche;
+    }
+  }
+
+  &--emploi {
+    .s-article-picture-01__col--article h2::after {
+      background-color: $emploi;
+    }
+
+    .s-article-picture-01__col figure > div > div {
+      border-bottom-color: $emploi;
+    }
+  }
+
+  &--pilotage {
+    .s-article-picture-01__col--article h2::after {
+      background-color: $pilotage;
+    }
+
+    .s-article-picture-01__col figure > div > div {
+      border-bottom-color: $pilotage;
+    }
+  }
+
+  &--communaute {
+    .s-article-picture-01__col--article h2::after {
+      background-color: $communaute;
+    }
+
+    .s-article-picture-01__col figure > div > div {
+      border-bottom-color: $communaute;
+    }
+  }
+
+  &--ltr {
+   .s-article-picture-01__col--picture,
+   .s-article-picture-01__col--figure {
+    @include media-breakpoint-up(lg) {
+      order: 2;
+    }
+   }
+   .s-article-picture-01__col-article {
+    @include media-breakpoint-up(lg) {
+      order: 1;
+    }
+   }
+  }
+
+
+  &.has-illustration-bg-01 {
+    overflow-x: hidden;
+
+    .container {
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 174px;
+        height: 280px;
+        z-index: -1;
+        bottom: -5px;
+        right: -55px;
+        background-image: url('../images/illustration-bg-01.png');
+        background-repeat: no-repeat;
+        background-position: 100% 100%;
+        display: none;
+
+        @include media-breakpoint-up(xl) {
+          display: block;
+        }
+      }
+    }
+  }
+}

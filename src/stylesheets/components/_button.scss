@@ -1,0 +1,163 @@
+.btn-link {
+  color: $button;
+  font-weight: $font-weight-bold;
+  text-decoration: none !important;
+
+  &.active,
+  &.focus,
+  &.hover,
+  &:active,
+  &:focus,
+  &:hover {
+    color: $button-light;
+
+    &.btn-ico {
+      text-decoration: none;
+
+      span:not([class^='badge-']) {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &.disabled,
+  &:disabled {
+    color: $nuance-06;
+  }
+}
+
+.btn-ico {
+  @extend .d-inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    display: inline-flex;
+  }
+
+  *:first-child:not(:only-child) {
+    margin-right: map-get($spacers, 2);
+  }
+}
+
+.btn-ico-only {
+  @extend .d-inline-flex;
+  @extend .align-items-center;
+  @extend .justify-content-center;
+  @extend .px-0;
+  aspect-ratio: 1 / 1;
+
+  min-height: 40px;
+  width: 40px;
+
+  &.btn-sm {
+    min-height: 32px;
+    width: 32px;
+  }
+
+  &.btn-lg {
+    min-height: 48px;
+    width: 48px;
+  }
+}
+
+.btn {
+  min-height: 40px;
+
+  > [class^='ri-'] {
+    font-weight: $font-weight-medium;
+    @extend .ri-1x;
+  }
+
+  &.btn-sm {
+    min-height: 32px;
+
+    > [class^='ri-'] {
+      @extend .ri-sm;
+    }
+  }
+
+  &.btn-lg {
+    min-height: 48px;
+
+    > [class^='ri-'] {
+      font-weight: $font-weight-bold;
+      @extend .ri-1x;
+    }
+  }
+}
+
+.btn-group-action {
+
+  // Prevent double borders when buttons are next to each other
+  >.btn-group:not(:first-child),
+  >.btn:not(:first-child) {
+    @extend .ml-2;
+  }
+
+  // Reset rounded corners
+  >.btn-group:not(:last-child)>.btn,
+  >.btn:not(:last-child):not(.dropdown-toggle) {
+    @include border-right-radius($btn-border-radius);
+  }
+
+  >.btn-group:not(:first-child)>.btn,
+  >.btn:not(:first-child) {
+    @include border-left-radius($btn-border-radius);
+  }
+}
+
+.btn-like {
+  i {
+    position: relative;
+    font-family: 'remixicon' !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1;
+    vertical-align: middle;
+    @extend .ri-xl;
+    @extend .text-danger;
+
+    &::after {
+      position: absolute;
+      z-index: 0;
+      left: 0;
+      opacity: 0;
+      content: '\ee0a';
+    }
+
+    &::after,
+    &::before {
+      transition: $transition-base;
+    }
+  }
+
+  &:hover {
+    i::before {
+      content: '\ee0a';
+    }
+  }
+
+  &:focus {
+    i::before {
+      content: '\ee0a';
+    }
+
+    i::after {
+      animation: grow .6s ease-out;
+    }
+  }
+
+  @keyframes grow {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+}

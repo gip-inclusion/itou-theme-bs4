@@ -1,0 +1,20 @@
+.s-title-01 {
+  margin-top: map-get($spacers, 4);
+  margin-bottom: map-get($spacers, 4);
+
+  @include media-breakpoint-up(lg) {
+    margin-bottom: map-get($spacers, 5);
+  }
+
+  &__col {
+
+    > h1,
+    > .h1 {
+      @extend .mb-2;
+    }
+
+    > *:last-child {
+      @extend .mb-0;
+    }
+  }
+}
