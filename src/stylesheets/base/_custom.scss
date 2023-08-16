@@ -146,7 +146,8 @@ select.form-control.form-control-lg {
 
 .form-control,
 .custom-select,
-.btn {
+.btn,
+button {
   &:focus {
     outline-offset: 2px;
     outline: $blue 2px solid;

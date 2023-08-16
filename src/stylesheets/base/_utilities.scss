@@ -4,7 +4,6 @@
   }
 }
 
-
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
@@ -16,7 +15,6 @@
       }
   }
 }
-
 
 .font-weight-medium {
   font-weight: $font-weight-medium;
